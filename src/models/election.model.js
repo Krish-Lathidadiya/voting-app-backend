@@ -3,24 +3,28 @@ const mongoose = require('mongoose');
 const electionSchema =new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: [true,"name is required"]
     },
     desc: {
         type: String,
+        
     },
     startDate: {
         type: Date,
-        required: true
+        required: [true,"start date is required"]
+
     },
     endDate: {
         type: Date,
-        required: true
+        required: [true,"end date is required"]
     },
     startTime: {
-        type: String,  
+        type: String, 
+        required: [true,"start time is required"] 
     },
     endTime: {
         type: String,  
+        required: [true,"end time is required"]
     }
 });
 

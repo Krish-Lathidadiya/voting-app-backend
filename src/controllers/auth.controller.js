@@ -25,6 +25,9 @@ exports.sendOtpEmail = async (req, res, next) => {
     // Send OTP email
     await sendMail(email, "Your Email OTP", getOtpEmailTemplate(otp));
 
+    //remove existing otp
+    await Otp.findOneAndDelete({userId:user._id})
+
     const newOtp = new Otp({
       userId: user._id,
       otp,
